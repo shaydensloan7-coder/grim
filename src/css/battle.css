@@ -1,0 +1,223 @@
+/* Battle UI styles */
+.battle-ui {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    font-family: 'determination_monoWeb', monospace;
+}
+
+.battle-ui * {
+    pointer-events: auto;
+}
+
+.battle-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid white;
+    background: black;
+}
+
+.soul {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('/Grimgame/UI Battle/Soul/spr_heart_0.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: transform 0.1s ease;
+}
+
+.soul.blue {
+    background-image: url('/Grimgame/UI Battle/Soul/spr_blueheart_0.png');
+}
+
+.soul.green {
+    background-image: url('/Grimgame/UI Battle/Soul/spr_greenheart_0.png');
+}
+
+.soul.purple {
+    background-image: url('/Grimgame/UI Battle/Soul/spr_purpleheart_0.png');
+}
+
+.soul.yellow {
+    background-image: url('/Grimgame/UI Battle/Soul/spr_yellowheart_0.png');
+}
+
+/* Info panels */
+.enemy-info,
+.player-info {
+    position: absolute;
+    width: 200px;
+    height: 60px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+}
+
+.enemy-info {
+    top: 20px;
+    right: 20px;
+}
+
+.player-info {
+    bottom: 120px;
+    left: 20px;
+}
+
+.name {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.hp-bar {
+    position: relative;
+    width: 100%;
+    height: 20px;
+    background: #800000;
+    border: 2px solid #ffffff;
+}
+
+.hp-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: #ffff00;
+    transition: width 0.3s ease-out;
+}
+
+.hp-text {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    line-height: 20px;
+    color: white;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+/* Dialogue box */
+.dialogue-box {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 80px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 3px solid white;
+    display: none;
+}
+
+.dialogue-text {
+    color: white;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+/* Menu */
+.menu {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.8);
+    border: 2px solid white;
+    padding: 10px;
+    z-index: 100;
+}
+
+.menu.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 10px;
+    background: none;
+    border: 2px solid transparent;
+    color: white;
+    font-family: 'determination_monoWeb', monospace;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    outline: none;
+}
+
+/* Damage numbers */
+.damage-text {
+    position: absolute;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 0 black;
+    animation: damageFloat 1s ease-out forwards;
+    pointer-events: none;
+}
+
+.damage-text.critical {
+    color: #ff0000;
+    font-size: 32px;
+}
+
+@keyframes damageFloat {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-50px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Targeting UI */
+.targeting-reticle {
+    position: absolute;
+    pointer-events: none;
+    animation: reticlePulse 1s infinite;
+}
+
+@keyframes reticlePulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.5;
+    }
+}
+
+/* Flavor Text (Undertale-style battle text) */
+.flavor-text {
+    position: absolute;
+    left: 30px;
+    top: 20px;
+    font-family: 'determination_monoWeb', monospace;
+    font-size: 32px;
+    color: white;
+    text-shadow: 2px 2px #000;
+    line-height: 1.2;
+    white-space: pre-wrap;
+}
+
+.flavor-text::before {
+    content: '*';
+    margin-right: 8px;
+    color: #fff;
+}
